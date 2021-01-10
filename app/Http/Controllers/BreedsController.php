@@ -2,28 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Breed;
+use Illuminate\Http\Request;
 
-class BreedsController extends Controller
+class BreedsController extends BaseController
 {
-      public function __construct()
+    public function __construct()
     {
-        //
-    }
-
-    //
-    public function index()
-    {
-        return Breed::all();
-/*         return [
-            "Shi Tzu",
-            "Pug",
-            "Workshire"
-        ]; */
+        $this->abstractClass = 'App\Models\Breed';
+        $this->validationRules =  ['name' => 'required'];
     }
 
     public function typesIndex()
     {
-        return Breed::getTypeNames();
+        return response()->json($this->abstractClass::getTypeNames(), 200);
     }
 }

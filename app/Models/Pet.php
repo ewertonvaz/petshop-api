@@ -11,8 +11,15 @@ class Pet extends Model {
         'breed_id'
     ];
 
+    protected $appends = ['breed_name'];
+
     public function breed()
     {
-        return $this->hasOne(Breed::class);
+        return $this->belongsTo(Breed::class);
+    }
+
+    public function getBreedNameAttribute() : string
+    {
+        return Breed::find($this->breed_id)->name;
     }
 }

@@ -21,5 +21,11 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
     $router->group(['prefix' => '/breeds'], function () use ($router) {
         $router->get('', 'BreedsController@index');
         $router->get('/types', 'BreedsController@typesIndex');
+        $router->post('', 'BreedsController@store');
+    });
+
+    $router->group(['prefix' => '/pets'], function () use ($router){
+        $router->get('', 'PetsController@index');
+        $router->post('', 'PetsController@store');
     });
 });
