@@ -1,24 +1,33 @@
-# Lumen PHP Framework
+# Criando API com Lumen PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+Este repositório contém uma API simples desenvolvida usando o [Laravel Lumen](https://lumen.laravel.com/docs) o micro frameworkt PHP produzido pelos mesmos criadores do Laravel. Trata-se de uma API que implementa um CRUD para um Pet Shop fictício.  Nela foram implementados os cadastros de Raças (Breeds) e Animais (Pets).
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Instalação
 
-## Official Documentation
+Para instalar a API , na interface de linha de comando (shell) digite os comandos abaixo:
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+`git clone https://github.com/ewertonvaz/petshop-api petshop-api`
 
-## Contributing
+` cd petshop-api`
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+`composer install`
 
-## Security Vulnerabilities
+Configure seu banco de dados usando o arquivo `.env` e depois execute as migrations e seeds:
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+`php artisan migrate`
 
-## License
+`php artisan db:seed`
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Por último, ative o servidor web embutdido do PHP com o comando:
+
+`php -S localhost:8000 -t public`
+
+Se quiser que a API responda em uma outra porta pode alterar o 8000 acima pelo número da porta desejada.
+
+## Utilização
+Para utilizar a API acesse uma das URL abaixo:
+(http://localhost:8000/api/v1/breeds)
+(http://localhost:8000/api/v1/pets)
+Elas implementam, respectivamente, o CRUD para as Raças e os Animais.
+Para inclusão utilizar uma requiisção do tipo POST; para alteração uma PUT; para exclusão DELETE e para recuperar usar o GET.
+
