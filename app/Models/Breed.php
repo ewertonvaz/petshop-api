@@ -12,7 +12,7 @@ class Breed extends Model {
 
     protected static $typeNames = ['cachorro','gato','ave','peixe'];
 
-    //protected $appends = ['links', 'type_names'];
+    protected $appends = ['links'];
 
     public function pets(){
         return $this->hasMany(Pet::class);
@@ -26,5 +26,13 @@ class Breed extends Model {
     public static function getTypeNames()
     {
         return static::$typeNames;
+    }
+
+    public function getLinksAttribute() : array
+    {
+        return [
+            'self' => '/api/v1/breeds/' . $this->id,
+            'pets' => '/api/v1/breeds/'. $this->id . '/pets'
+        ];
     }
 }

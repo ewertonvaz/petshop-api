@@ -21,17 +21,5 @@ class PetsController extends BaseController
         } 
         return response()->json($pets, 200); 
     }
-
-    public function store(Request $request)
-    {
-        $validationRules =  [
-            'name' => 'required',
-            'breed_id' => 'required'
-        ];
-
-        $this->validate($request, $validationRules);
-
-        return response()
-            ->json(Pet::create($request->all()), 201);
-    } */
+ */
 }

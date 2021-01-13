@@ -11,7 +11,7 @@ class Pet extends Model {
         'breed_id'
     ];
 
-    protected $appends = ['breed_name'];
+    protected $appends = ['breed_name', 'breed_type', 'links'];
 
     public function breed()
     {
@@ -21,5 +21,18 @@ class Pet extends Model {
     public function getBreedNameAttribute() : string
     {
         return Breed::find($this->breed_id)->name;
+    }
+
+    public function getBreedTypeAttribute() : string
+    {
+        return Breed::find($this->breed_id)->type;
+    }
+
+    public function getLinksAttribute() : array
+    {
+        return [
+            'self' => '/api/v1/pets/' . $this->id,
+            'breed' => '/api/v1/breeds/'. $this->breed_id
+        ];
     }
 }

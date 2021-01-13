@@ -27,7 +27,7 @@ $app->withFacades();
 
 $app->withEloquent();
 
-//config(['app.locale' => 'pt-br']);
+config(['app.locale' => 'pt-br']);
 
 /*
 |--------------------------------------------------------------------------
