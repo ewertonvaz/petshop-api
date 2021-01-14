@@ -6,6 +6,8 @@ use App\Models\Breed;
 use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model {
+    use ChangeDateFormatTrait;
+    
     protected $fillable = [
         'name',
         'breed_id'
@@ -20,12 +22,14 @@ class Pet extends Model {
 
     public function getBreedNameAttribute() : string
     {
-        return Breed::find($this->breed_id)->name;
+        //return Breed::find($this->breed_id)->name;
+        return $this->breed->name;
     }
 
     public function getBreedTypeAttribute() : string
     {
-        return Breed::find($this->breed_id)->type;
+        //return Breed::find($this->breed_id)->type;
+        return $this->breed->type;
     }
 
     public function getLinksAttribute() : array
