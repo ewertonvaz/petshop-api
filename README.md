@@ -29,5 +29,5 @@ Para utilizar a API acesse uma das URL abaixo:
 (http://localhost:8000/api/v1/breeds)
 (http://localhost:8000/api/v1/pets)
 Elas implementam, respectivamente, o CRUD para as Raças e os Animais.
-Para inclusão utilizar uma requiisção do tipo POST; para alteração uma PUT; para exclusão DELETE e para recuperar usar o GET.
+Para inclusão utilizar uma requiisção do tipo POST; para alteração uma PATCH; para exclusão DELETE e para consultar/recuperar usar o GET.
 

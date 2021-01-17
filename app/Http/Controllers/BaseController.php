@@ -41,7 +41,7 @@ abstract class BaseController extends Controller
     public function show(int $id)
     {
         $resource = $this->abstractClass::find($id);
-        $code = $resource ? 200 : 204;
+        $code = $resource ? 200 : 404;
         return response() -> json($resource, $code) ;
     }
 
