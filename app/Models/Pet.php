@@ -35,8 +35,8 @@ class Pet extends Model {
     public function getLinksAttribute() : array
     {
         return [
-            'self' => '/api/v1/pets/' . $this->id,
-            'breed' => '/api/v1/breeds/'. $this->breed_id
+            'self' => url('/api/v1/pets/' . $this->id),
+            'breed' => url('/api/v1/breeds/'. $this->breed_id)
         ];
     }
 }
