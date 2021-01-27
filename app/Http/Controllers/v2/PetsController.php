@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v2;
 
 class PetsController extends BaseController
 {
     public function __construct()
     {
-        $this->abstractClass = 'App\Models\Pet';
+        $this->abstractClass = 'App\Models\v2Pet';
         $this->validationRules =  [
             'name' => 'required',
             'breed_id' => 'required'

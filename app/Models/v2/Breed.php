@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\v2;
 
-use App\Models\Pet;
+use App\Models\v2\Pet;
 use Illuminate\Database\Eloquent\Model;
 
 class Breed extends Model {
@@ -31,8 +31,8 @@ class Breed extends Model {
     public function getLinksAttribute() : array
     {
         return [
-            'self' => url('/api/v1/breeds/' . $this->id),
-            'pets' => url('/api/v1/breeds/'. $this->id . '/pets')
+            'self' => url('/api/v2/breeds/' . $this->id),
+            'pets' => url('/api/v2/breeds/'. $this->id . '/pets')
         ];
     }
 }

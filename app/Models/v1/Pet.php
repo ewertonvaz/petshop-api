@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\v1;
 
-use App\Models\Breed;
+use App\Models\v1\Breed;
 use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model {
