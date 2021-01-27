@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Breed;
+use App\Models\v2\Breed;
 use Illuminate\Database\Seeder;
 
 class BreedSeeder extends Seeder
