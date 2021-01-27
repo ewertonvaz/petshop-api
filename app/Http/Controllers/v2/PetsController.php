@@ -6,7 +6,7 @@ class PetsController extends BaseController
 {
     public function __construct()
     {
-        $this->abstractClass = 'App\Models\v2Pet';
+        $this->abstractClass = 'App\Models\v2\Pet';
         $this->validationRules =  [
             'name' => 'required',
             'breed_id' => 'required'
