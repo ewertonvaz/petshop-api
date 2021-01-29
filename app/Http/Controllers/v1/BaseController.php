@@ -27,7 +27,8 @@ abstract class BaseController extends Controller
             $result['data'] =  $paginator->items();
             return response()->json($result, 200);
         }
-        return response()->json($this->abstractClass::all(), 200);
+        return response()
+        ->json($this->abstractClass::all(), 200);
     }
 
     public function store(Request $request)
