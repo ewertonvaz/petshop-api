@@ -15,19 +15,20 @@ abstract class BaseController extends Controller
     {
         if ($request->has('page') || $request->has('per_page')) {
             $paginator = $this->abstractClass::paginate($request->per_page);
-            $per_page = $paginator->perPage();
-            $self = $paginator->url($paginator->currentPage()) . ($per_page ? '&per_page=' . $per_page : '');
-            $last = $paginator->url($paginator->lastPage()) . ($per_page ? '&per_page=' . $per_page : '');
-            $next = $paginator->nextPageUrl() . ($per_page ? '&per_page=' . $per_page : '');
+            $per_page = $paginator->perPage();   
+           
             $result['links'] = [
-                "self" => $self ,
-                "next" => ($self == $last  ? '' : $next ),
-                "last" => ($self == $last ? '' : $last)
+                "self" => $paginator->url($paginator->currentPage()) . ($per_page ? '&per_page=' . $per_page : ''),
+                "first" => $paginator->url(1) . ($per_page ? '&per_page=' . $per_page : ''),
+                "previous" => $paginator->previousPageUrl(),
+                "next" => $paginator->nextPageUrl() ? $paginator->nextPageUrl() . ($per_page ? '&per_page=' . $per_page : '') : null,
+                "last" => $paginator->url($paginator->lastPage()) . ($per_page ? '&per_page=' . $per_page : '')
             ];
-            $result['data'] =  $paginator->items();
-            return response()->json($result, 200);
+            $result['data'] = $paginator->items();
+        } else {
+            $result['data'] = $this->abstractClass::all();
         }
-        return response()->json($this->abstractClass::all(), 200);
+        return response()->json($result, 200);
     }
 
     public function store(Request $request)
