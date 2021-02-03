@@ -20,7 +20,7 @@ abstract class BaseController extends Controller
             $result['links'] = [
                 "self" => $paginator->url($paginator->currentPage()) . ($per_page ? '&per_page=' . $per_page : ''),
                 "first" => $paginator->url(1) . ($per_page ? '&per_page=' . $per_page : ''),
-                "previous" => $paginator->previousPageUrl(),
+                "previous" => $paginator->previousPageUrl() ? $paginator->previousPageUrl() . ($per_page ? '&per_page=' . $per_page : '') : null,
                 "next" => $paginator->nextPageUrl() ? $paginator->nextPageUrl() . ($per_page ? '&per_page=' . $per_page : '') : null,
                 "last" => $paginator->url($paginator->lastPage()) . ($per_page ? '&per_page=' . $per_page : '')
             ];
